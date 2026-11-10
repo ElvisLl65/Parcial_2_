@@ -23,10 +23,10 @@ public class InteraccionAgua : MonoBehaviour
         {
             rendererAgua.GetPropertyBlock(_propBlock);
 
-            // Convertimos la posición global de la esfera al espacio local del Quad del agua
+            // Convertimos la posición global de la esfera al espacio local del Quad
             Vector3 posicionLocalEsfera = rendererAgua.transform.InverseTransformPoint(transform.position);
 
-            // Inyectamos las variables locales de forma directa al Shader
+            // Pasamos las variables usando los nombres exactos registrados en tu Amplify
             _propBlock.SetVector("_Epicentro", posicionLocalEsfera);
             _propBlock.SetFloat("_FuerzaImpacto", fuerzaImpacto);
             _propBlock.SetFloat("_RadioAgua", radioEfecto);
@@ -34,4 +34,4 @@ public class InteraccionAgua : MonoBehaviour
             rendererAgua.SetPropertyBlock(_propBlock);
         }
     }
-} // <--- ASEGURATE DE QUE ESTA LLAVE ESTÉ AL FINAL DEL ARCHIVO
+}
