@@ -124,7 +124,7 @@ Shader "Proyector_Persiana"
 }
 /*ASEBEGIN
 Version=18900
-210.6667;72.66667;1118;707.6667;266.1899;369.9304;1.373936;True;False
+210.6667;72.66667;1118;689.6667;750.1252;647.2461;2.089769;True;False
 Node;AmplifyShaderEditor.UnityProjectorMatrixNode;1;-185,-0.166687;Inherit;False;0;1;FLOAT4x4;0
 Node;AmplifyShaderEditor.PosVertexDataNode;2;-218,91.83331;Inherit;False;1;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;3;-0.999939,30.83328;Inherit;False;2;2;0;FLOAT4x4;0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0
@@ -134,7 +134,7 @@ Node;AmplifyShaderEditor.SimpleDivideOpNode;6;434.0001,110.8333;Inherit;False;2;
 Node;AmplifyShaderEditor.ColorNode;12;397.6265,-173.2597;Inherit;False;Property;_ColordeLuz;Color de Luz;0;0;Create;True;0;0;0;False;0;False;1,0.8979886,0.007843137,1;1,0.8979886,0.007843137,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;13;434.9972,6.116991;Inherit;False;Property;_Intensidad;Intensidad;1;0;Create;True;0;0;0;False;0;False;1;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;14;643.1984,-77.47716;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SamplerNode;19;563.7562,90.73703;Inherit;True;Property;_TextureSample0;Texture Sample 0;2;0;Create;True;0;0;0;False;0;False;-1;e14ad0869bc16aa438288eb6cb78ad1c;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;19;563.7562,90.73703;Inherit;True;Property;_TextureSample0;Texture Sample 0;2;0;Create;True;0;0;0;False;0;False;-1;e14ad0869bc16aa438288eb6cb78ad1c;e14ad0869bc16aa438288eb6cb78ad1c;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;15;905.8602,65.53384;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;1059.7,74.62444;Float;False;True;-1;2;ASEMaterialInspector;100;1;Proyector_Persiana;0770190933193b94aaa3065e307002fa;True;Unlit;0;0;Unlit;2;True;True;1;3;False;-1;1;False;-1;0;1;False;-1;0;False;-1;True;0;False;-1;0;False;-1;False;False;False;False;False;False;False;False;False;True;0;False;-1;False;True;0;False;-1;False;True;True;True;True;True;0;False;-1;False;False;False;False;False;False;False;True;False;255;False;-1;255;False;-1;255;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;False;True;1;False;-1;True;3;False;-1;True;True;0;False;-1;0;False;-1;True;1;RenderType=Opaque=RenderType;True;2;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=ForwardBase;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;1;True;False;;False;0
 WireConnection;3;0;1;0
@@ -151,4 +151,4 @@ WireConnection;15;0;14;0
 WireConnection;15;1;19;0
 WireConnection;0;0;15;0
 ASEEND*/
-//CHKSM=8823B1652D01871E902B8E6DDB6CCF20C09A83AF
+//CHKSM=A92A0A1E1A5D5034A16F44864F7DFE9772179E4B

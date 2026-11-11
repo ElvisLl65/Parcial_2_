@@ -403,13 +403,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1142713915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6603107ed9e12dd4ebb13d6cf5160730, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  horaDelDia: 12
-  velocidadTiempo: 1
-  componenteProyector: {fileID: 0}
-  _materialDinamico: {fileID: 0}
 --- !u!119 &1142713917
 Projector:
   m_ObjectHideFlags: 0
@@ -421,7 +417,7 @@ Projector:
   serializedVersion: 2
   m_NearClipPlane: 0.1
   m_FarClipPlane: 29.1
-  m_FieldOfView: 20
+  m_FieldOfView: 25
   m_AspectRatio: 1
   m_Orthographic: 0
   m_OrthographicSize: 10
