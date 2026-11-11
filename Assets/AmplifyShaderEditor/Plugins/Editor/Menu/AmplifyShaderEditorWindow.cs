@@ -656,8 +656,12 @@ namespace AmplifyShaderEditor
 			{
 				m_mainGraphInstance = CreateInstance<ParentGraph>();
 				m_mainGraphInstance.Init();
-				m_mainGraphInstance.ParentWindow = this;
 				m_mainGraphInstance.SetGraphId( 0 );
+			}
+			m_mainGraphInstance.ParentWindow = this;
+			if( m_customGraph != null )
+			{
+				m_customGraph.ParentWindow = this;
 			}
 			m_mainGraphInstance.ResetEvents();
 			m_mainGraphInstance.OnNodeEvent += OnNodeStoppedMovingEvent;
@@ -1476,8 +1480,12 @@ namespace AmplifyShaderEditor
 			{
 				m_mainGraphInstance = CreateInstance<ParentGraph>();
 				m_mainGraphInstance.Init();
-				m_mainGraphInstance.ParentWindow = this;
 				m_mainGraphInstance.SetGraphId( 0 );
+			}
+			m_mainGraphInstance.ParentWindow = this;
+			if( m_customGraph != null )
+			{
+				m_customGraph.ParentWindow = this;
 			}
 			m_mainGraphInstance.ResetEvents();
 			m_mainGraphInstance.OnNodeEvent += OnNodeStoppedMovingEvent;

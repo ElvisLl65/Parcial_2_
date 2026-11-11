@@ -152,12 +152,14 @@ namespace AmplifyShaderEditor
 							if( attribute.ShortcutKey != KeyCode.None && type != null )
 								m_shortcutTypes.Add( attribute.ShortcutKey, new ShortcutKeyData( type, attribute.Name ) );
 
+							ParentGraph graph = currentGraph != null ? currentGraph : m_currentGraph;
+							AmplifyShaderEditorWindow parentWindow = graph != null ? graph.ParentWindow : UIUtils.CurrentWindow;
 							ContextMenuItem newItem = new ContextMenuItem( attribute, type, attribute.Name, attribute.Tags, attribute.Category, attribute.Description, null, attribute.ShortcutKey );
 							if( UIUtils.GetNodeAvailabilityInBitArray( attribute.NodeAvailabilityFlags, NodeAvailability.SurfaceShader ) )
 								m_items.Add( newItem );
-							else if( UIUtils.GetNodeAvailabilityInBitArray( attribute.NodeAvailabilityFlags, currentGraph.ParentWindow.CurrentNodeAvailability ) )
+							else if( parentWindow != null && UIUtils.GetNodeAvailabilityInBitArray( attribute.NodeAvailabilityFlags, parentWindow.CurrentNodeAvailability ) )
 								m_items.Add( newItem );
-							else if( UIUtils.GetNodeAvailabilityInBitArray( attribute.NodeAvailabilityFlags, currentGraph.CurrentCanvasMode ) )
+							else if( graph != null && UIUtils.GetNodeAvailabilityInBitArray( attribute.NodeAvailabilityFlags, graph.CurrentCanvasMode ) )
 								m_items.Add( newItem );
 
 							m_itemsDict.Add( type, attribute );
@@ -374,7 +376,8 @@ namespace AmplifyShaderEditor
 		{
 			get
 			{
-				if( m_currentGraph.ParentWindow.IsShaderFunctionWindow )
+				AmplifyShaderEditorWindow parentWindow = m_currentGraph != null ? m_currentGraph.ParentWindow : UIUtils.CurrentWindow;
+				if( parentWindow != null && parentWindow.IsShaderFunctionWindow )
 					return m_itemFunctions;
 				else
 					return m_items;
