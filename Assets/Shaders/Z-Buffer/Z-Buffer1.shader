@@ -45,7 +45,7 @@ Shader "ZbufferShader"
 }
 /*ASEBEGIN
 Version=18900
-210.6667;72.66667;1118;689.6667;701.7022;217.4507;1.346707;True;False
+108;72.66667;1226.667;529;1364.599;233.7957;1.721522;True;False
 Node;AmplifyShaderEditor.ScreenPosInputsNode;1;-625.6821,137.9089;Float;False;0;False;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ScreenDepthNode;3;-406.0301,222.2615;Inherit;False;0;True;1;0;FLOAT4;0,0,0,0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ComponentMaskNode;6;-419.1117,137.1065;Inherit;False;False;False;True;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT;0
@@ -68,4 +68,4 @@ WireConnection;14;0;12;0
 WireConnection;14;1;13;0
 WireConnection;0;2;14;0
 ASEEND*/
-//CHKSM=FC5C0240767155EF9CC6F41B4CC09CCF57118044
+//CHKSM=86F637A55AB30585F110BDC79B4A35B9771F87DC
