@@ -134,7 +134,7 @@ Shader "Enemigo_XRay_Stencil"
 }
 /*ASEBEGIN
 Version=18900
-226;72.66667;1214.667;670.3333;1262.264;208.5529;1.300338;True;False
+210.6667;72.66667;1118;689.6667;1183.807;262.7337;1.300338;True;False
 Node;AmplifyShaderEditor.RangedFloatNode;2;-800.5526,259.5997;Inherit;False;Constant;_ExponenteFresnel;ExponenteFresnel;0;0;Create;True;0;0;0;False;0;False;1.5;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.FresnelNode;1;-604.257,43.79953;Inherit;False;Standard;WorldNormal;ViewDir;False;False;5;0;FLOAT3;0,0,1;False;4;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;5;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ColorNode;3;-536.6536,333.6999;Inherit;False;Property;_Color0;Color 0;0;0;Create;True;0;0;0;False;0;False;0.6698113,0,0,1;1,0,0.00961256,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -149,4 +149,4 @@ WireConnection;5;0;4;0
 WireConnection;5;1;6;0
 WireConnection;0;0;5;0
 ASEEND*/
-//CHKSM=D5CDB6F97522FCA02938C13817573B6201066741
+//CHKSM=2A81EAC2AA1075D72396BD559C2A2B3EBF21B0C5
