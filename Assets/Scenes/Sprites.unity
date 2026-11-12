@@ -214,8 +214,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384176034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.67, y: 2.37, z: 15.55}
-  m_LocalScale: {x: 8.3, y: 8.3, z: 8.3}
+  m_LocalPosition: {x: 0.57, y: 3.41, z: 15.92}
+  m_LocalScale: {x: 4.7339554, y: 4.2102957, z: 8.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -234,8 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rendererAgua: {fileID: 1630675348}
-  radioEfecto: 0.5
-  fuerzaImpacto: 1
+  radioEfecto: 0.25
+  fuerzaImpacto: 0.5
 --- !u!1 &483990565
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,8 +714,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630675346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4993, y: 2.3668, z: 15.92}
-  m_LocalScale: {x: 14.420566, y: 7.816494, z: 1}
+  m_LocalPosition: {x: 0.4993, y: 1.3406, z: 16.04}
+  m_LocalScale: {x: 14.420566, y: 5.7638826, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -747,8 +747,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rendererAgua: {fileID: 1630675348}
-  radioEfecto: 2.5
-  fuerzaImpacto: 0.6
+  radioEfecto: 0.25
+  fuerzaImpacto: 0.06
 --- !u!1 &1958444714
 GameObject:
   m_ObjectHideFlags: 0
