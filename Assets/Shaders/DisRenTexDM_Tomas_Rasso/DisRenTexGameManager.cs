@@ -250,8 +250,8 @@ namespace DisRenTexDrawMesh
             targetPreviewRenderTexture.Create();
             ClearRenderTexture(targetPreviewRenderTexture, new Color(0.11f, 0.16f, 0.24f, 1f));
 
-            if (rtViewerMaterial != null)
-                rtViewerMaterial.SetTexture(CapturedRTID, captureRenderTexture);
+           // if (rtViewerMaterial != null)
+             //   rtViewerMaterial.SetTexture(CapturedRTID, captureRenderTexture);
 
             int worldMask = ~((1 << PreviewLayer) | (1 << BinocularCameraEffect.BinocularQuadLayer));
 
@@ -613,8 +613,8 @@ namespace DisRenTexDrawMesh
             _hasCapture = true;
             _captureCount++;
 
-            if (rtViewerMaterial != null)
-                rtViewerMaterial.SetTexture(CapturedRTID, captureRenderTexture);
+            //if (rtViewerMaterial != null)
+              //  rtViewerMaterial.SetTexture(CapturedRTID, captureRenderTexture);
 
             if (_rtModalImage != null)
                 _rtModalImage.texture = captureRenderTexture;
