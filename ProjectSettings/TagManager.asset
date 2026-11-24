@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Agua
+  - SecondCamera
+  - BulletSpawn
+  - Dummie
+  - LevelPart
   layers:
   - Default
   - TransparentFX
@@ -14,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Gun
+  - Player
   - 
   - 
   - 
