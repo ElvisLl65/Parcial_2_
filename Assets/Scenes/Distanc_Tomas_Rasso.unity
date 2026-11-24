@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2189165697742768765, guid: 889d24f8fc349cf45b463fb9b13b0143, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.12999988
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 2189165697742768765, guid: 889d24f8fc349cf45b463fb9b13b0143, type: 3}
       propertyPath: m_LocalPosition.z
@@ -178,8 +178,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4034439012892689413, guid: 889d24f8fc349cf45b463fb9b13b0143, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.936
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034439012892689413, guid: 889d24f8fc349cf45b463fb9b13b0143, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.175
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 889d24f8fc349cf45b463fb9b13b0143, type: 3}
+--- !u!1 &624892827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624892829}
+  - component: {fileID: 624892828}
+  m_Layer: 0
+  m_Name: DistanceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &624892828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624892827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a85952a18573747b72fb4e879d9029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 928477927}
+  wallMaterial: {fileID: 2100000, guid: f5206a5188a94924e92357820eeba773, type: 2}
+--- !u!4 &624892829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624892827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.148681, y: 1.1175439, z: -8.792209}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705221095
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +343,17 @@ MonoBehaviour:
   keyPitchSpeed: 55
   zoomSpeed: 1.2
   smoothTime: 0.08
+  targetYaw: 0
+  targetPitch: 0
+  targetDistance: 0
+  currentYaw: 0
+  currentPitch: 0
+  currentDistance: 0
+  yawVelocity: 0
+  pitchVelocity: 0
+  distanceVelocity: 0
+  lastMousePosition: {x: 0, y: 0, z: 0}
+  isDragging: 0
 --- !u!1 &928477925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1525218576529477831, guid: 889d24f8fc349cf45b463fb9b13b0143, type: 3}
@@ -311,10 +376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289b9510a62b7ea44a19f51bd7165a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cabinMaterial: {fileID: 2100000, guid: f5206a5188a94924e92357820eeba773, type: 2}
+  cabinMaterial: {fileID: 0}
   targetCamera: {fileID: 705221097}
-  holeRadius: 2.2
-  holeSoftness: 0.4
+  holeRadius: 1.48
+  holeSoftness: 0.46
   characterHeightOffset: 1
 --- !u!1 &1346491871
 GameObject:
@@ -427,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4382890705706664, guid: c472a7c3f85525f4c98177cf92fa98de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4455986
+      value: 1.74
       objectReference: {fileID: 0}
     - target: {fileID: 4382890705706664, guid: c472a7c3f85525f4c98177cf92fa98de, type: 3}
       propertyPath: m_LocalPosition.y

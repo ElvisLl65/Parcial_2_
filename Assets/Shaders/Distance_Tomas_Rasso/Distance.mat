@@ -68,13 +68,14 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _DepthOffset: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _EdgeSoftness: 0.15
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HoleRad: 2.2
-    - _HoleSoft: 0.4
+    - _HoleRadius: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -86,8 +87,7 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _CameraPos: {r: 3.853035, g: 0.20532608, b: -6.562874, a: 0}
-    - _CharacterPos: {r: 2.71, g: 1.1299999, b: 3.6510005, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _PlayerPosition: {r: 2.71, g: 0.74, b: 3.6510005, a: 0}
   m_BuildTextureStacks: []
