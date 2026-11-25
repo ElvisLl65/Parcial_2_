@@ -19,11 +19,39 @@ public class EasyFPSFirstPersonViewer : MonoBehaviour
     [Tooltip("Ocultar el conteo de balas abajo a la izquierda")]
     public bool hideBulletCounter = true;
 
+    [Header("Efecto de Sangre (Post Process)")]
+    [Tooltip("Material del efecto de sangre (M_BloodPostProcess)")]
+    public Material bloodMaterial;
+
+    [Range(0f, 1f)]
+    [Tooltip("Intensidad base del efecto de sangre")]
+    public float bloodIntensity = 1f;
+
+    [Range(0f, 1f)]
+    [Tooltip("Radio de apertura del centro limpio")]
+    public float bloodRadius = 0.3f;
+
+    [Range(0f, 1f)]
+    [Tooltip("Borde / transición de la sangre hacia los bordes")]
+    public float bloodEdge = 0.6f;
+
+    [Range(0f, 1f)]
+    [Tooltip("Fuerza de salpicadura de ruido en la sangre")]
+    public float splatterStrength = 0.35f;
+
+    [Tooltip("Color de la sangre")]
+    public Color bloodColor = new Color(0.5882353f, 0f, 0f, 1f);
+
+    [Header("Efecto de Curación (Post Process)")]
+    [Tooltip("Material del efecto de curación (M_HealPostProcess)")]
+    public Material healMaterial;
+
     private GunInventory inventory;
     private GunScript currentGunScript;
     private MouseLookScript mouseLook;
     private Rigidbody playerRb;
     private PlayerMovementScript playerMovement;
+    private HealScreenEffect healEffect;
 
     void Awake()
     {
@@ -84,6 +112,16 @@ public class EasyFPSFirstPersonViewer : MonoBehaviour
         {
             HideBulletsHUD();
         }
+
+        // 6. Configurar hooks de post-procesamiento en la cámara
+        SetupCameraHooks();
+        ApplyMaterialParameters();
+    }
+
+    void Start()
+    {
+        SetupCameraHooks();
+        ApplyMaterialParameters();
     }
 
     IEnumerator SpawnImmediately()
@@ -106,6 +144,9 @@ public class EasyFPSFirstPersonViewer : MonoBehaviour
         {
             HideBulletsHUD();
         }
+
+        SetupCameraHooks();
+        ApplyMaterialParameters();
     }
 
     void Update()
@@ -121,6 +162,9 @@ public class EasyFPSFirstPersonViewer : MonoBehaviour
         {
             HideBulletsHUD();
         }
+
+        SetupCameraHooks();
+        ApplyMaterialParameters();
     }
 
     void LateUpdate()
@@ -130,6 +174,90 @@ public class EasyFPSFirstPersonViewer : MonoBehaviour
         if (hideBulletCounter)
         {
             HideBulletsHUD();
+        }
+
+        ApplyMaterialParameters();
+    }
+
+    public void SetupCameraHooks()
+    {
+        GameObject targetCamObj = GameObject.FindGameObjectWithTag("SecondCamera");
+        if (targetCamObj == null && Camera.main != null)
+        {
+            targetCamObj = Camera.main.gameObject;
+        }
+
+        if (targetCamObj != null)
+        {
+            // Hook de sangre
+            BloodCameraHook bloodHook = targetCamObj.GetComponent<BloodCameraHook>();
+            if (bloodHook == null)
+            {
+                bloodHook = targetCamObj.AddComponent<BloodCameraHook>();
+            }
+            bloodHook.viewer = this;
+
+            // Hook de curación (HealScreenEffect)
+            healEffect = targetCamObj.GetComponent<HealScreenEffect>();
+            if (healEffect == null)
+            {
+                healEffect = targetCamObj.AddComponent<HealScreenEffect>();
+            }
+            if (healEffect.healMaterial == null && healMaterial != null)
+            {
+                healEffect.healMaterial = healMaterial;
+            }
+            if (healEffect.bloodMaterial == null && bloodMaterial != null)
+            {
+                healEffect.bloodMaterial = bloodMaterial;
+            }
+        }
+    }
+
+    public void ApplyMaterialParameters()
+    {
+        if (bloodMaterial != null)
+        {
+            // La sangre se desvanece suavemente mientras se presiona R (curación)
+            float effectiveBlood = bloodIntensity;
+            if (healEffect != null)
+            {
+                effectiveBlood *= Mathf.Clamp01(1f - healEffect.currentIntensity);
+            }
+
+            bloodMaterial.SetFloat("_BloodIntensity", effectiveBlood);
+            bloodMaterial.SetFloat("_BloodRadius", bloodRadius);
+            bloodMaterial.SetFloat("_BloodEdge", bloodEdge);
+            bloodMaterial.SetFloat("_SplatterStrength", splatterStrength);
+            bloodMaterial.SetColor("_BloodColor", bloodColor);
+            bloodMaterial.SetVector("_Vector0", new Vector4(0.5f, 0.5f, 0f, 0f));
+        }
+    }
+
+    void OnEnable()
+    {
+        ApplyMaterialParameters();
+    }
+
+    void OnDisable()
+    {
+        if (bloodMaterial != null)
+        {
+            bloodMaterial.SetFloat("_BloodIntensity", 0f);
+        }
+    }
+
+    void OnRenderImage(RenderTexture src, RenderTexture dest)
+    {
+        if (bloodMaterial != null)
+        {
+            ApplyMaterialParameters();
+            bloodMaterial.SetTexture("_TextureSample0", src);
+            Graphics.Blit(src, dest, bloodMaterial);
+        }
+        else
+        {
+            Graphics.Blit(src, dest);
         }
     }
 
@@ -205,6 +333,25 @@ public class EasyFPSFirstPersonViewer : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+}
+
+public class BloodCameraHook : MonoBehaviour
+{
+    public EasyFPSFirstPersonViewer viewer;
+
+    void OnRenderImage(RenderTexture src, RenderTexture dest)
+    {
+        if (viewer != null && viewer.enabled && viewer.gameObject.activeInHierarchy && viewer.bloodMaterial != null)
+        {
+            viewer.ApplyMaterialParameters();
+            viewer.bloodMaterial.SetTexture("_TextureSample0", src);
+            Graphics.Blit(src, dest, viewer.bloodMaterial);
+        }
+        else
+        {
+            Graphics.Blit(src, dest);
         }
     }
 }
