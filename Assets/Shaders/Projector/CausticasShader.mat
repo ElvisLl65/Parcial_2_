@@ -30,7 +30,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Escala: 2.5
+    - _DistanciaFade: 25
+    - _Escala: 12.5
     - _Intensidad: 1.5
     - _Velocidad: 1
     m_Colors:
