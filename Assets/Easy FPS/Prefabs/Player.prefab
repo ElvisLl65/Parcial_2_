@@ -406,6 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 409796}
   - component: {fileID: 2024722}
+  - component: {fileID: 11488888}
   m_Layer: 9
   m_Name: Camera
   m_TagString: SecondCamera
@@ -471,6 +472,25 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &11488888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a52d3e189445129fb074982631ef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healMaterial: {fileID: 2100000, guid: ff8ac2b1a384ca54b8c9701e6ee4ff0d, type: 2}
+  bloodMaterial: {fileID: 2100000, guid: 879ab5d8a70618044882bbeaa442030c, type: 2}
+  healKey: 114
+  fadeInSpeed: 5
+  fadeOutSpeed: 2
+  minFlashDuration: 0.45
+  currentIntensity: 0
 --- !u!1 &1055382955271976
 GameObject:
   m_ObjectHideFlags: 0
