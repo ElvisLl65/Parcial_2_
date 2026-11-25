@@ -157,10 +157,10 @@ Shader "New Amplify Shader"
 }
 /*ASEBEGIN
 Version=18900
-208.6667;72.66667;1205.333;681;1080.564;319.2238;1;True;False
-Node;AmplifyShaderEditor.TexturePropertyNode;3;-702.2247,31.46893;Inherit;True;Property;_Texture1;Texture 1;8;0;Create;True;0;0;0;False;0;False;None;None;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
-Node;AmplifyShaderEditor.TexturePropertyNode;2;-703.0669,-161.0061;Inherit;True;Property;_Texture0;Texture 0;7;0;Create;True;0;0;0;False;0;False;None;None;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
-Node;AmplifyShaderEditor.RangedFloatNode;4;-752.2246,224.4689;Inherit;False;Property;_DistortionAmount;DistortionAmount;9;0;Create;True;0;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0
+208.6667;72.66667;1205.333;681;1225.564;288.2238;1;True;False
+Node;AmplifyShaderEditor.RangedFloatNode;4;-752.2246,224.4689;Inherit;False;Property;_DistortionAmount;DistortionAmount;9;0;Create;True;0;0;0;False;0;False;0;0.06;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.TexturePropertyNode;3;-702.2247,31.46893;Inherit;True;Property;_Texture1;Texture 1;8;0;Create;True;0;0;0;False;0;False;None;00e0021f9f2d77a4fb3d5957267488e7;True;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.TexturePropertyNode;2;-793.0669,-169.0061;Inherit;True;Property;_Texture0;Texture 0;7;0;Create;True;0;0;0;False;0;False;None;10ce150fe82d7da4e86e69daf9b7cb16;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
 Node;AmplifyShaderEditor.FunctionNode;1;-464.579,12.65953;Inherit;False;UI-Sprite Effect Layer;0;;1;789bf62641c5cfe4ab7126850acc22b8;18,74,0,204,0,191,0,225,0,242,0,237,0,249,0,186,0,177,0,182,1,229,0,92,0,98,0,234,0,126,0,129,1,130,0,31,0;18;192;COLOR;1,1,1,1;False;39;COLOR;1,1,1,1;False;37;SAMPLER2D;;False;218;FLOAT2;0,0;False;239;FLOAT2;0,0;False;181;FLOAT2;0,0;False;75;SAMPLER2D;;False;80;FLOAT;1;False;183;FLOAT2;0.2,0.2;False;188;SAMPLER2D;;False;33;SAMPLER2D;;False;248;FLOAT2;0,0;False;233;SAMPLER2D;;False;101;SAMPLER2D;;False;57;FLOAT4;0,0,0,0;False;40;FLOAT;0;False;231;FLOAT;1;False;30;FLOAT;1;False;2;COLOR;0;FLOAT2;172
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;-123.9999,11;Float;False;True;-1;2;ASEMaterialInspector;0;6;New Amplify Shader;5056123faa0c79b47ab6ad7e8bf059a4;True;Default;0;0;Default;2;False;True;2;5;False;-1;10;False;-1;0;1;False;-1;0;False;-1;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;-1;False;True;True;True;True;True;0;True;-9;False;False;False;False;False;False;False;True;True;0;True;-5;255;True;-8;255;True;-7;0;True;-4;0;True;-6;1;False;-1;1;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;False;True;2;False;-1;True;0;True;-11;False;True;5;Queue=Transparent=Queue=0;IgnoreProjector=True;RenderType=Transparent=RenderType;PreviewType=Plane;CanUseSpriteAtlas=True;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;0;;0;0;Standard;0;0;1;True;False;;False;0
 WireConnection;1;37;2;0
@@ -168,4 +168,4 @@ WireConnection;1;75;3;0
 WireConnection;1;80;4;0
 WireConnection;0;0;1;0
 ASEEND*/
-//CHKSM=0301D1E96A7A68728FB722BF90FB16691C7F0C0D
+//CHKSM=35BCD8C3BCC5F56F1476E7A6C0753C803114905A

@@ -40,6 +40,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _FlowandMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -57,11 +61,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture0:
-        m_Texture: {fileID: 2800000, guid: 80ab37a9e4f49c842903bb43bdd7bcd2, type: 3}
+        m_Texture: {fileID: 2800000, guid: a9b8671e6fa5da547bbd4f18383d9de0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture1:
-        m_Texture: {fileID: 2800000, guid: 00e0021f9f2d77a4fb3d5957267488e7, type: 3}
+        m_Texture: {fileID: 2800000, guid: ccc16bce2e0410143b6266aac38eeab6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -70,7 +74,7 @@ Material:
     - _ColorMask: 15
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DistortionAmount: 0.2
+    - _DistortionAmount: 0.06
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
