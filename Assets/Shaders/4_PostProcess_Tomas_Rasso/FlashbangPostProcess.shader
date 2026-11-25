@@ -6,32 +6,40 @@ Shader "FlashbangPostProcess"
 	{
 		_MainTex ( "Screen", 2D ) = "black" {}
 		_ScreenTex("_ScreenTex", 2D) = "white" {}
-		_FlashColor("FlashColor", Color) = (1,1,1,1)
-		_FlashIntensity("FlashIntensity", Range( 0 , 1)) = 0
+		_FlashColor("FlashColor", Color) = (1,1,1,0)
+		_FlashI("FlashI", Range( 0 , 1)) = 0.318844
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
+
 	}
 
 	SubShader
 	{
 		LOD 0
 
+		
+		
 		ZTest Always
 		Cull Off
 		ZWrite Off
 
+		
 		Pass
 		{ 
 			CGPROGRAM 
+
+			
 
 			#pragma vertex vert_img_custom 
 			#pragma fragment frag
 			#pragma target 3.0
 			#include "UnityCG.cginc"
+			
 
 			struct appdata_img_custom
 			{
 				float4 vertex : POSITION;
 				half2 texcoord : TEXCOORD0;
+				
 			};
 
 			struct v2f_img_custom
@@ -43,6 +51,7 @@ Shader "FlashbangPostProcess"
 				half4 uv2 : TEXCOORD1;
 				half4 stereoUV2 : TEXCOORD3;
 		#endif
+				
 			};
 
 			uniform sampler2D _MainTex;
@@ -52,11 +61,13 @@ Shader "FlashbangPostProcess"
 			uniform sampler2D _ScreenTex;
 			uniform float4 _ScreenTex_ST;
 			uniform float4 _FlashColor;
-			uniform float _FlashIntensity;
+			uniform float _FlashI;
+
 
 			v2f_img_custom vert_img_custom ( appdata_img_custom v  )
 			{
 				v2f_img_custom o;
+				
 				o.pos = UnityObjectToClipPos( v.vertex );
 				o.uv = float4( v.texcoord.xy, 1, 1 );
 
@@ -81,15 +92,14 @@ Shader "FlashbangPostProcess"
 					half2 stereoUV = i.stereoUV;
 				#endif	
 				
-				float2 uv_Screen = uv.xy;
-				half4 sceneColor = tex2D(_MainTex, uv_Screen);
-				if (sceneColor.a == 0.0 && sceneColor.r == 0.0 && sceneColor.g == 0.0 && sceneColor.b == 0.0)
-				{
-					sceneColor = tex2D(_ScreenTex, uv_Screen);
-				}
+				half4 finalColor;
 
-				half4 flashColor = half4(_FlashColor.rgb, 1.0);
-				half4 finalColor = lerp(sceneColor, flashColor, saturate(_FlashIntensity));
+				// ase common template code
+				float2 uv_ScreenTex = i.uv.xy * _ScreenTex_ST.xy + _ScreenTex_ST.zw;
+				float4 lerpResult5 = lerp( tex2D( _ScreenTex, uv_ScreenTex ) , _FlashColor , _FlashI);
+				
+
+				finalColor = lerpResult5;
 
 				return finalColor;
 			} 
@@ -97,14 +107,16 @@ Shader "FlashbangPostProcess"
 		}
 	}
 	CustomEditor "ASEMaterialInspector"
+	
+	
 }
 /*ASEBEGIN
 Version=18900
-194;72.66667;1091.333;638.3333;710.6136;1005.424;2.449426;True;False
+194.6667;72.66667;1120.667;638.3333;-378.6487;120.3631;1.081979;True;False
 Node;AmplifyShaderEditor.TexturePropertyNode;1;226.2491,-252.2799;Inherit;True;Property;_ScreenTex;_ScreenTex;0;0;Create;True;0;0;0;True;0;False;None;None;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.ColorNode;3;816.8763,35.32104;Inherit;False;Property;_FlashColor;FlashColor;1;0;Create;True;0;0;0;False;0;False;1,1,1,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SamplerNode;2;552.79,-95.18916;Inherit;True;Property;_TextureSample0;Texture Sample 0;1;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;3;816.8763,35.32104;Inherit;False;Property;_FlashColor;FlashColor;1;0;Create;True;0;0;0;False;0;False;1,1,1,1;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;4;825.7478,336.407;Inherit;False;Property;_FlashIntensity;FlashIntensity;2;0;Create;True;0;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;4;825.7478,336.407;Inherit;False;Property;_FlashI;FlashI;2;0;Create;True;0;0;0;False;0;False;0.318844;0.318844;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.LerpOp;5;1153.168,-29.18678;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;1386.922,26.90494;Float;False;True;-1;2;ASEMaterialInspector;0;4;FlashbangPostProcess;c71b220b631b6344493ea3cf87110c93;True;SubShader 0 Pass 0;0;0;SubShader 0 Pass 0;1;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;-1;False;False;False;False;False;False;False;False;False;False;False;True;2;False;-1;True;7;False;-1;False;True;0;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;0;;0;0;Standard;0;0;1;True;False;;False;0
 WireConnection;2;0;1;0
@@ -113,3 +125,4 @@ WireConnection;5;1;3;0
 WireConnection;5;2;4;0
 WireConnection;0;0;5;0
 ASEEND*/
+//CHKSM=BF940632147ACCE3C342A7984AC1745C179A9EF2

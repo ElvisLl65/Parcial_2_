@@ -7,6 +7,7 @@ Shader "DrunkPostProcess"
 		_MainTex ( "Screen", 2D ) = "black" {}
 		_WaveFrequency("WaveFrequency", Float) = 2.5
 		_ScreenTex("_ScreenTex", 2D) = "white" {}
+		_DrunkIntensity("DrunkIntensity", Range( 0 , 0.15)) = 0.02153425
 
 	}
 
@@ -59,6 +60,7 @@ Shader "DrunkPostProcess"
 			
 			uniform sampler2D _ScreenTex;
 			uniform float _WaveFrequency;
+			uniform float _DrunkIntensity;
 
 
 			v2f_img_custom vert_img_custom ( appdata_img_custom v  )
@@ -95,7 +97,7 @@ Shader "DrunkPostProcess"
 				float2 texCoord12 = i.uv.xy * float2( 1,1 ) + float2( 0,0 );
 				
 
-				finalColor = tex2D( _ScreenTex, ( texCoord12 + ( cos( ( ( (texCoord12).y * _WaveFrequency ) + ( _Time.y * 1.5 ) ) ) * 0.02153425 ) ) );
+				finalColor = tex2D( _ScreenTex, ( texCoord12 + ( cos( ( ( (texCoord12).y * _WaveFrequency ) + ( _Time.y * 1.5 ) ) ) * _DrunkIntensity ) ) );
 
 				return finalColor;
 			} 
@@ -108,17 +110,17 @@ Shader "DrunkPostProcess"
 }
 /*ASEBEGIN
 Version=18900
-0;72.66667;1706.667;907;-698.8649;985.0502;2.177362;False;False
+194.6667;72.66667;1120.667;638.3333;-713.1317;743.6884;2.321267;True;False
 Node;AmplifyShaderEditor.TextureCoordinatesNode;12;494.7106,-212.9565;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleTimeNode;16;552.3036,178.2042;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ComponentMaskNode;13;708.1104,-48.59517;Inherit;False;False;True;False;False;1;0;FLOAT2;0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;14;529.046,76.95309;Inherit;False;Property;_WaveFrequency;WaveFrequency;0;0;Create;True;0;0;0;False;0;False;2.5;6;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;17;565.5933,266.3334;Inherit;False;Constant;_ZigzagSpeed;ZigzagSpeed;2;0;Create;True;0;0;0;False;0;False;1.5;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;17;565.5933,265.3334;Inherit;False;Constant;_ZigzagSpeed;ZigzagSpeed;2;0;Create;True;0;0;0;False;0;False;1.5;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;14;529.046,75.95309;Inherit;False;Property;_WaveFrequency;WaveFrequency;0;0;Create;True;0;0;0;False;0;False;2.5;6;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;15;927.7912,-33.92655;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;18;849.6635,149.9633;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;19;1121.317,43.18256;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.CosOpNode;21;1314.562,96.00832;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;24;1293.508,240.3705;Inherit;False;Constant;_DrunkIntensity;DrunkIntensity;2;0;Create;True;0;0;0;False;0;False;0.02153425;0;0;0.15;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;24;1293.508,240.3705;Inherit;False;Property;_DrunkIntensity;DrunkIntensity;2;0;Create;True;0;0;0;False;0;False;0.02153425;0.02153425;0;0.15;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;26;1478.164,78.48699;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.TexturePropertyNode;11;1660.561,-403.4926;Inherit;True;Property;_ScreenTex;_ScreenTex;1;0;Create;True;0;0;0;True;0;False;None;None;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
 Node;AmplifyShaderEditor.SimpleAddOpNode;28;1867.204,35.91872;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0
@@ -140,4 +142,4 @@ WireConnection;9;0;11;0
 WireConnection;9;1;28;0
 WireConnection;0;0;9;0
 ASEEND*/
-//CHKSM=9C7F5EF93EA940CAB1E01ABB1DD3E0D206F41D75
+//CHKSM=67510458B8B25C190B9A289F0F08B30DAF3FC9EC
