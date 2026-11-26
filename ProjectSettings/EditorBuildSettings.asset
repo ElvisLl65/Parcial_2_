@@ -4,5 +4,35 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/2_DisRenTexDrawMesh.unity
+    guid: 3e8f71a44039b204699c4c536ff1bdef
+  - enabled: 1
+    path: Assets/Scenes/1_Distanc_Tomas_Rasso.unity
+    guid: fce069b8d30f4ae4b8493a689f79bfbb
+  - enabled: 1
+    path: Assets/Scenes/Z-Buffer.unity
+    guid: 518ea4c5d75e68647a8dfe55e54111c8
+  - enabled: 1
+    path: Assets/Scenes/4_PostProcess_Tomas_Rasso.unity
+    guid: ef97fa5692dc03440b8d6e97750ff1c1
+  - enabled: 1
+    path: Assets/Scenes/Sprites.unity
+    guid: a1fffd0c1a8d71343902c91a3d234080
+  - enabled: 1
+    path: Assets/Scenes/UI.unity
+    guid: 0cf2720714c21e143801ea4730baa11d
+  - enabled: 1
+    path: Assets/Scenes/Stencil.unity
+    guid: 59fb6d3ac9108b544b6a9a262996bcde
+  - enabled: 1
+    path: Assets/Scenes/CartaTCG.unity
+    guid: cc30d064f049cab40bbbcf398f34bbc5
+  - enabled: 1
+    path: Assets/Scenes/DebajoDelMar.unity
+    guid: f9a3c00de0c33b24ca0af749e23253fc
+  - enabled: 1
+    path: Assets/Scenes/Proyector.unity
+    guid: 9c42a4e44e4f2084cb66dda3fa104b8c
   m_configObjects: {}

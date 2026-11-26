@@ -2,10 +2,19 @@ using UnityEngine;
 
 public class RotarCarta : MonoBehaviour
 {
-    public float velocidad = 40f;
+    public float amplitud = 60f;
+    public float frecuencia = 1.2f;
+
+    Quaternion rotacionInicial;
+
+    void Start()
+    {
+        rotacionInicial = transform.rotation;
+    }
 
     void Update()
     {
-        transform.Rotate(0f, velocidad * Time.deltaTime, 0f, Space.World);
+        float angulo = Mathf.Sin(Time.time * frecuencia) * amplitud;
+        transform.rotation = Quaternion.Euler(0f, angulo, 0f) * rotacionInicial;
     }
 }
